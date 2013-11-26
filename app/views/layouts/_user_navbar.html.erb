@@ -1,2 +1,8 @@
-Signed in as <%= current_user.username %>. Not you?
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<nav>
+	<ul>
+		<li><%= link_to 'Novo Projeto', new_projeto_path %></li>
+		<li><%= link_to 'Projetos', projetos_path %></li>
+		<li><%= link_to 'Perfil', user_path(current_user) %></li>
+		<li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
+	</ul>
+</nav>

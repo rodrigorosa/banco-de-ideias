@@ -16,30 +16,46 @@
   </head>
   <body>
 
+		<div id="wrap">
 
-    <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-					<% if user_signed_in? %>
-						<%= render 'layouts/user_navbar' %>
-					<% else %>
-						<%= render 'layouts/visitor_navbar' %>
-					<% end %>
-        </div>
-      </nav>
-    </header>		
+			<div class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          
+	          <%= link_to 'BancoDeIdeias', root_path, :class => 'navbar-brand' %>
+	        </div>
+	        <div class="collapse navbar-collapse">
+							<% if user_signed_in? %>
+								<%= render 'layouts/user_navbar' %>
+							<% else %>
+								<%= render 'layouts/visitor_navbar' %>
+							<% end %>
+	        </div>
+	      </div>
+	    </div>
 
-		<div id="content">
-			<% if notice.present? %>
-				<div id="notice"> <%= notice %> </div>
-			<% end %>
-			
-			<% if alert.present? %>
-				<div id="alert"><%= alert %></div>
-			<% end %>
+			<div class="container">
+				<% if notice.present? %>
+					<div id="notice"> <%= notice %> </div>
+				<% end %>
+				
+				<% if alert.present? %>
+					<div id="alert"><%= alert %></div>
+				<% end %>
 
-			<%= yield %>		
+				<%= yield %>		
+			</div>
 		</div>
-    
+
+		<footer id="footer">
+			<div class="container">
+				<p>by <a href="http://twitter.com/rodrigorosa">@rodrigorosa</a></p>
+			</div>
+		</footer>
   </body>
 </html>
