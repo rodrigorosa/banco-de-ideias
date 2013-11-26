@@ -1,5 +1,7 @@
 Bancodeideias::Application.routes.draw do
-  resources :projetos
+  resources :projetos do
+    resources :comentarios
+  end
 
   devise_for :users
   get "home/index"
