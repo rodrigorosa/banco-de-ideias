@@ -1,12 +1,10 @@
-<h1>Listing projetos</h1>
+<h1>Meus projetos</h1>
 
-<table>
+<table class='table table-striped'>
   <thead>
     <tr>
       <th>Titulo</th>
       <th>Descricao</th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -16,9 +14,10 @@
       <tr>
         <td><%= projeto.titulo %></td>
         <td><%= projeto.descricao %></td>
-        <td><%= link_to 'Show', projeto %></td>
-        <td><%= link_to 'Edit', edit_projeto_path(projeto) %></td>
-        <td><%= link_to 'Destroy', projeto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Editar', edit_projeto_path(projeto), :class => 'btn btn-xs btn-primary' %>
+          <%= link_to 'Excluir', projeto, method: :delete, data: { confirm: 'Tem certeza?' }, :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Projeto', new_projeto_path %>
+<%= link_to 'Novo Projeto', new_projeto_path, :class => 'btn btn-primary' %>

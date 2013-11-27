@@ -1,8 +1,7 @@
 <nav>
 	<ul class="nav navbar-nav">
-		<li><%= link_to 'Novo Projeto', new_projeto_path %></li>
-		<li><%= link_to 'Projetos', projetos_path %></li>
-		<li><%= link_to 'Perfil', user_path(current_user) %></li>
+		<li><%= link_to 'Meus Projetos', projetos_path %></li>
+		<li><%= link_to 'Perfil', edit_user_registration_path %></li>
 		<li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
 	</ul>
 </nav>

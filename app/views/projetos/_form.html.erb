@@ -13,13 +13,13 @@
 
   <div class="field">
     <%= f.label :titulo %><br>
-    <%= f.text_field :titulo %>
+    <%= f.text_field :titulo, :autofocus => true %>
   </div>
   <div class="field">
     <%= f.label :descricao %><br>
-    <%= f.text_area :descricao %>
+    <%= f.text_area :descricao, :cols => 70, :rows => 15 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Criar Projeto' %>
   </div>
 <% end %>

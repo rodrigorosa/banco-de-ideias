@@ -1,14 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @projeto.titulo %></h1>
 
 <p>
-  <strong>Titulo:</strong>
-  <%= @projeto.titulo %>
-</p>
-
-<p>
-  <strong>Descricao:</strong>
   <%= @projeto.descricao %>
 </p>
 
-<%= link_to 'Edit', edit_projeto_path(@projeto) %> |
-<%= link_to 'Back', projetos_path %>
+<%= link_to 'Editar', edit_projeto_path(@projeto) %> |
+<%= link_to 'Voltar', projetos_path %>
