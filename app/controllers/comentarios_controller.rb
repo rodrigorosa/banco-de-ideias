@@ -3,8 +3,13 @@ class ComentariosController < ApplicationController
 
 	def create
 		@comentario = projeto.comentarios.build(comentarios_params)
-		@comentario.save
-		redirect_to projeto
+
+    if @comentario.save
+      redirect_to projeto, notice: 'Comentário adicionado com sucesso.' 
+    else
+      render :template => "projetos/show", notice: "Erro ao adicionar comentário"
+    end
+
 	end
 
 	def destroy

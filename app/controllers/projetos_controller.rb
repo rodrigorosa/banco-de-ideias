@@ -5,7 +5,7 @@ class ProjetosController < ApplicationController
   # GET /projetos
   # GET /projetos.json
   def index
-    @projetos = Projeto.all
+    @projetos = current_user.projetos
   end
 
   # GET /projetos/1
@@ -15,7 +15,7 @@ class ProjetosController < ApplicationController
 
   # GET /projetos/new
   def new
-    @projeto = Projeto.new
+    @projeto = current_user.projetos.build
   end
 
   # GET /projetos/1/edit
@@ -25,7 +25,7 @@ class ProjetosController < ApplicationController
   # POST /projetos
   # POST /projetos.json
   def create
-    @projeto = Projeto.new(projeto_params)
+    @projeto = current_user.projetos.build(projeto_params)
 
     respond_to do |format|
       if @projeto.save

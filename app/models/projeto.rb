@@ -5,6 +5,6 @@ class Projeto < ActiveRecord::Base
 	scope :mais_recentes, -> { order('created_at DESC') }
 
   def self.mais_votados
-  	Projeto.sort {|a,b| a.comentarios.sum(:votos) <=> b.comentarios.sum(:votos) }
+  	Projeto.all.sort! {|a,b| a.comentarios.sum(:pontos) <=> b.comentarios.sum(:pontos) }
   end
 end

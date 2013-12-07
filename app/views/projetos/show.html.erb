@@ -1,19 +1,21 @@
-<h1><%= @projeto.titulo %></h1>
-
-<p>
-  <%= @projeto.descricao %>
+<p id="notice">
+	<%= notice %>
 </p>
 
+<h1><%= @projeto.titulo %></h1>
+<p><%= @projeto.descricao %></p>
+
 <h2>Comentários</h2>
-<% @projeto.comentarios.each do |c| %>
-  <p><%= c.comentario %></p>
-  <p><%= time_ago_in_words c.created_at %> ago</p>
+<% @projeto.comentarios.each do |comentario| %>
+  <p><%= comentario.comentario %></p>
+  
+  <p><%= link_to "Excluir comentário", [@projeto, comentario], :method => :delete, :confirm => "Are you sure?" %></p>
 <% end %>
 
-
-<%= form_for [@projeto, @projeto.comentarios.build] do |c| %>
-  <p><%= c.text_area :comentario, :size => '40x10' %></p>
-  <p><%= c.submit "Adicionar comentário" %></p>
+<%= form_for [@projeto, @projeto.comentarios.build] do |f| %>
+	<p><%= f.text_field :pontos, :autofocus => true %></p>
+  <p><%= f.text_area :comentario, :size => '40x10' %></p>
+  <p><%= f.submit "Adicionar comentário" %></p>
 <% end %>
 
 <%= link_to 'Voltar', projetos_path %>

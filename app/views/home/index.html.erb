@@ -1,4 +1,27 @@
 <div class="page-header">
 	<h1>Bem vindo ao Banco de Ideias</h1>
-	<p class="lead">Mais votados</p>
+
+	<div class="row">
+		<div class="col-md-4">
+				<h2>Mais votados</h2>
+				<% @projetos_mais_votados.each do |projeto| %>
+					<div class="projetos">
+						<p><strong><%= link_to projeto.titulo, projeto %></strong></p>
+						<p><%= truncate projeto.descricao %></p>
+						<p><%= projeto.user.username %> - <%= l(projeto.created_at, format: :short) %></p>
+					</div>
+				<% end %>
+		</div>
+
+		<div class="col-md-4">
+			<h2>Mais recentes</h2>
+			<% @projetos_mais_recentes.each do |projeto| %>
+				<div class="projetos">
+					<p><strong><%= link_to projeto.titulo, projeto %></strong></p>
+			  	<p><%= truncate projeto.descricao %></p>				
+					<p><%= projeto.user.username %> - <%= l(projeto.created_at, format: :short) %></p>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>
