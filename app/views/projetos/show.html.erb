@@ -4,5 +4,16 @@
   <%= @projeto.descricao %>
 </p>
 
-<%= link_to 'Editar', edit_projeto_path(@projeto) %> |
+<h2>Comentários</h2>
+<% @projeto.comentarios.each do |c| %>
+  <p><%= c.comentario %></p>
+  <p><%= time_ago_in_words c.created_at %> ago</p>
+<% end %>
+
+
+<%= form_for [@projeto, @projeto.comentarios.build] do |c| %>
+  <p><%= c.text_area :comentario, :size => '40x10' %></p>
+  <p><%= c.submit "Adicionar comentário" %></p>
+<% end %>
+
 <%= link_to 'Voltar', projetos_path %>

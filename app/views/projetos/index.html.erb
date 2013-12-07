@@ -12,7 +12,7 @@
   <tbody>
     <% @projetos.each do |projeto| %>
       <tr>
-        <td><%= projeto.titulo %></td>
+        <td><%= link_to projeto.titulo, projeto %></td>
         <td><%= projeto.descricao %></td>
         <td>
           <%= link_to 'Editar', edit_projeto_path(projeto), :class => 'btn btn-xs btn-primary' %>

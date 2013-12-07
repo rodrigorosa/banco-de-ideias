@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126222450) do
+ActiveRecord::Schema.define(version: 20131207124641) do
 
   create_table "comentarios", force: true do |t|
     t.integer  "projeto_id"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(version: 20131126222450) do
     t.text     "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "projetos", ["user_id"], name: "index_projetos_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

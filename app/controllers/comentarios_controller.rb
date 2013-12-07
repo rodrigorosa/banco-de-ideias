@@ -1,20 +1,16 @@
-class Comentarios < ApplicationController
-	before_action :authenticate_user! only[:new, :edit, :create, :update, :destroy]
-
-	def new
-		@comentario = projeto.comentarios.build
-	end
+class ComentariosController < ApplicationController
+	before_action :authenticate_user!, only: [:create, :destroy]
 
 	def create
 		@comentario = projeto.comentarios.build(comentarios_params)
 		@comentario.save
-		redirect_to @comentario.projeto
+		redirect_to projeto
 	end
 
 	def destroy
-		@comentario = projeto.comentarios.find(params[:id])
+		@comentario = Comentario.find(params[:id])
 		@comentario.destroy
-		redirect_to @comentario.proejto
+		redirect_to @comentario.projeto
 	end
 
 	private
