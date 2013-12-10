@@ -11,6 +11,9 @@ class ProjetosController < ApplicationController
   # GET /projetos/1
   # GET /projetos/1.json
   def show
+    if user_signed_in?
+      @user_voto = @projeto.votos.find_or_initialize_by(user_id: current_user.id)
+    end
   end
 
   # GET /projetos/new

@@ -49,3 +49,5 @@ end
 
 # Autenticação
 gem 'devise'
+
+gem 'font-awesome-rails'

@@ -1,0 +1,15 @@
+<section class="voto">
+	<% if user_signed_in? %>
+		<%= form_for [voto.projeto, voto], remote: true do |f|  %>
+			<% Voto::POINTS.each do |point| %>
+				<%= f.radio_button :pontos, point %>
+				<%= f.label :pontos, point, value: point %>
+			<% end %>
+			<%= f.submit %>
+		<% end %>
+	<% else %>
+		<span class="login_required">
+			Login requerido
+		</span>
+	<% end %>
+</section>

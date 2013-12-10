@@ -1,6 +1,9 @@
 Bancodeideias::Application.routes.draw do
+  get "votos/create"
+  get "votos/update"
   resources :projetos do
     resources :comentarios
+    resources :votos, only: [:create, :update]
   end
 
   devise_for :users

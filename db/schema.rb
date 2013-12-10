@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131207124641) do
+ActiveRecord::Schema.define(version: 20131210220837) do
 
   create_table "comentarios", force: true do |t|
     t.integer  "projeto_id"
-    t.integer  "pontos"
     t.text     "comentario"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -56,5 +55,17 @@ ActiveRecord::Schema.define(version: 20131207124641) do
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "votos", force: true do |t|
+    t.integer  "pontos"
+    t.integer  "projeto_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votos", ["projeto_id"], name: "index_votos_on_projeto_id"
+  add_index "votos", ["user_id", "projeto_id"], name: "index_votos_on_user_id_and_projeto_id", unique: true
+  add_index "votos", ["user_id"], name: "index_votos_on_user_id"
 
 end

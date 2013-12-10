@@ -12,8 +12,9 @@
   <p><%= link_to "Excluir comentário", [@projeto, comentario], :method => :delete, :confirm => "Are you sure?" %></p>
 <% end %>
 
+<%= render partial: 'voto', object: @user_voto %>
+
 <%= form_for [@projeto, @projeto.comentarios.build] do |f| %>
-	<p><%= f.text_field :pontos, :autofocus => true %></p>
   <p><%= f.text_area :comentario, :size => '40x10' %></p>
   <p><%= f.submit "Adicionar comentário" %></p>
 <% end %>
