@@ -7,9 +7,8 @@ class ComentariosController < ApplicationController
     if @comentario.save
       redirect_to projeto, notice: 'Comentário adicionado com sucesso.' 
     else
-      render :template => "projetos/show", notice: "Erro ao adicionar comentário"
+      redirect_to projeto, :flash => { :error => "Erro ao adicionar comentário, bitch" }
     end
-
 	end
 
 	def destroy
